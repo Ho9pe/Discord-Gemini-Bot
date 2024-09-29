@@ -63,11 +63,11 @@ client.on('messageCreate', async message => {
     }
 
     // Debugging output
-    console.log('User Histories:', JSON.stringify(formatConversationHistory(userHistories), null, 2));
+    // console.log('User Histories:', JSON.stringify(formatConversationHistory(userHistories), null, 2));
     // Show the conversation history when pressed Ctrl+C
-    // process.on('SIGINT', function () {
-    //     console.log('Conversation History:', JSON.stringify(formatConversationHistory(userHistories), null, 2));
-    // });
+    process.on('SIGINT', function () {
+        console.log('Conversation History:', JSON.stringify(formatConversationHistory(userHistories), null, 2));
+    });
 });
 
 async function processMessage(message, userId, isDM = false) {
